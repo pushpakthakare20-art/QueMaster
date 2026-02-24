@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | QueMaster</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" />
+</head>
+<body>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>📚 QueMaster</h2>
+      <ul>
+        <li><a href="{{ url_for('dashboard') }}">🏠 Dashboard</a></li>
+        <li><a href="{{ url_for('generate') }}">📝 Generate Paper</a></li>
+        <li><a href="{{ url_for('syllabus') }}">📖 View Syllabus</a></li>
+        <li><a href="{{ url_for('home') }}" onclick="logout()">🚪 Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <header class="topbar">
+        <h1>Welcome, Teacher 👨‍🏫</h1>
+      </header>
+
+      <section class="dashboard-card highlight">
+        <h2>📝 Generate New Question Paper</h2>
+        <p>Choose subject, topic & marks to auto-generate a professional paper.</p>
+        <a href="{{ url_for('generate') }}" class="btn">Generate Paper</a>
+      </section>
+
+      <section class="dashboard-card">
+        <h2>📖 View Syllabus</h2>
+        <p>Browse complete syllabus with subjects, units and topics.</p>
+        <a href="{{ url_for('syllabus') }}" class="btn secondary">View Syllabus</a>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 QueMaster. Built by Shivaprasad & Team</p>
+  </footer>
+
+  <script>
+    function logout() {
+      alert("Logging out... (Flask session/logout route coming soon)");
+      window.location.href = "{{ url_for('login') }}";
+    }
+  </script>
+
+</body>
+</html>

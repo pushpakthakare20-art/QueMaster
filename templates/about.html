@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About • QueMaster</title>
+
+  <!-- Meta -->
+  <meta name="description" content="Learn about QueMaster — the AI-assisted question paper generator built by Shivaprasad, Pushpak, and Soham.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/faq_about.css') }}" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <a class="brand" href="{{ url_for('index') }}">QueMaster</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a class="active" href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('faq') }}">FAQ</a>
+      <a class="btn btn-small" href="{{ url_for('login') }}">Login</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Page Title -->
+    <section class="page-hero">
+      <h1>About QueMaster</h1>
+      <p>AI-assisted, SPPU/NEP-aligned question paper generation — built for teachers.</p>
+    </section>
+
+    <!-- Content -->
+    <section class="content card">
+
+      <h2>Our Mission</h2>
+      <p>
+        We help educators save time and standardize assessments. QueMaster turns topics into structured, printable question papers in minutes.
+      </p>
+
+      <h2>What We Deliver</h2>
+      <ul class="list">
+        <li>AI-assisted question suggestions (approve or edit)</li>
+        <li>Presets for 25/50/100 marks with “attempt any” patterns</li>
+        <li>Clean, print-ready PDF export</li>
+        <li>Support for multiple subjects and topics</li>
+        <li>Teacher accounts with saved history</li>
+      </ul>
+
+      <h2>Team</h2>
+      <div class="team">
+        <div class="member"><strong>Shivaprasad Gosavi</strong><span>UI/UX & Frontend</span></div>
+        <div class="member"><strong>Pushpak Thakarey</strong><span>Backend & Architecture</span></div>
+        <div class="member"><strong>Soham Salunke</strong><span>Database & AI logic</span></div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="foot-wrap">
+      <div class="brand">QueMaster</div>
+      <div class="copy">© 2025 QueMaster. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Mobile Navbar Script -->
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

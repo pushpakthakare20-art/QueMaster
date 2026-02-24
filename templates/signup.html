@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Sign Up | QueMaster</title>
+
+  <!-- Link to Flask static CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+  <div class="signup-container">
+    <div class="signup-box">
+      <h2>👩‍🏫 Create Your Account</h2>
+      <p>Join QueMaster to generate smart papers!</p>
+
+      <!-- Show error if present -->
+      <!-- Show flashed messages (also keep legacy error variable) -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flashes">
+            {% for category, msg in messages %}
+              <div class="flash {{ category }}">{{ msg }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% if error %}
+        <p class="error">{{ error }}</p>
+      {% endif %}
+
+      <form action="{{ url_for('signup') }}" method="POST">
+        <input type="text" name="name" placeholder="👤 Full Name" required />
+        <input type="email" name="email" placeholder="📧 Email Address" required />
+        <input type="text" name="subject" placeholder="📚 Subject (e.g. Python)" required />
+        <input type="password" name="password" placeholder="🔒 Password" required />
+        <button type="submit">🚀 Sign Up</button>
+      </form>
+
+      <p class="login-link">
+        Already have an account?
+        <a href="{{ url_for('login') }}">Login here</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

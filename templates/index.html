@@ -1,0 +1,132 @@
+<!-- Save this as: templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QueMaster — AI Question Paper Generator</title>
+
+  <!-- SEO -->
+  <meta name="description" content="QueMaster helps teachers auto-generate professional, SPPU/NEP-ready question papers using AI. Fast, reliable, and easy."/>
+  <meta name="keywords" content="question paper generator, AI exam tool, NEP, SPPU, education, teachers, college"/>
+  <meta name="author" content="Shivaprasad Gosavi, Pushpak Thakare, Soham Salunke"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="nav">
+    <a class="brand" href="{{ url_for('index') }}">QueMaster</a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav class="nav-links" role="navigation">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('faq') }}">FAQ</a>
+      <a class="btn btn-small" href="{{ url_for('login') }}">Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-inner">
+      <h1 class="reveal-up">Ask. Generate. Deliver.</h1>
+      <p class="lead reveal-up delay-1">
+        Create polished, SPPU/NEP‑compliant question papers in minutes — not hours.
+      </p>
+      <div class="cta reveal-up delay-2">
+        <a class="btn btn-primary" href="{{ url_for('login') }}">Get Started</a>
+        <a class="btn btn-ghost" href="{{ url_for('home') }}">Explore Features</a>
+      </div>
+      <div class="badges reveal-up delay-3" aria-hidden="true">
+        <span>SPPU‑ready</span>
+        <span>NEP‑aligned</span>
+        <span>AI‑assisted</span>
+      </div>
+    </div>
+    <a href="#features" class="scroll-indicator" aria-label="Scroll">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- Features preview -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title reveal-up">Why QueMaster?</h2>
+      <div class="grid features">
+        <div class="card reveal-up">
+          <div class="icon">⚡</div>
+          <h3>Instant generation</h3>
+          <p>Enter topic + marks pattern, and get a ready paper with one click.</p>
+        </div>
+        <div class="card reveal-up delay-1">
+          <div class="icon">🎯</div>
+          <h3>Structured patterns</h3>
+          <p>“Attempt any 4 of 5”, multiple sets, difficulty mix — fully supported.</p>
+        </div>
+        <div class="card reveal-up delay-2">
+          <div class="icon">🧠</div>
+          <h3>AI assistance</h3>
+          <p>Use GPT to draft focused questions, then approve and export.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA strip -->
+  <section class="cta-strip">
+    <div class="container reveal-up">
+      <h3>Ready to save hours every exam cycle?</h3>
+      <a class="btn btn-primary" href="{{ url_for('login') }}">Start now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand foot">QueMaster</div>
+        <p class="foot-note">Built by Shivaprasad, Pushpak &amp; Soham.</p>
+      </div>
+      <div class="foot-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('faq') }}">FAQ</a>
+        <a href="{{ url_for('login') }}">Login</a>
+      </div>
+      <div class="foot-small">
+        © 2025 QueMaster. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('open');
+    });
+
+    const reveal = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+    const io = new IntersectionObserver(reveal, { threshold: 0.12 });
+    document.querySelectorAll('.reveal-up').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

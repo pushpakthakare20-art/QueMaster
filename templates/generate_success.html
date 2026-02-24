@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generated Paper | QueMaster</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/generate_success.css') }}">
+  <meta http-equiv="refresh" content="15;url={{ url_for('logout') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Question Paper Generated</h1>
+    <p class="note">Here is your paper. You’ll be redirected to Home in 15 seconds.</p>
+
+    <section class="paper">
+      <h2>{{ subject if subject else "Subject Name" }}</h2>
+
+      <h3>Q1) Attempt any 4 of the following (1 mark each)</h3>
+      <ol>
+        {% for q in q1 %}
+          {% if q %}
+            <li>{{ q }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+
+      <h3>Q2) Attempt any 4 of the following (2 marks each)</h3>
+      <ol>
+        {% for q in q2 %}
+          {% if q %}
+            <li>{{ q }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+
+      <h3>Q3) Attempt any 2 of the following (4 marks each)</h3>
+      <ol>
+        {% for q in q3 %}
+          {% if q %}
+            <li>{{ q }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+
+      <h3>Q4) Attempt any 1 of the following (5 marks)</h3>
+      <ol>
+        {% for q in q4 %}
+          {% if q %}
+            <li>{{ q }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </section>
+
+    <div class="actions">
+      {% if pdf_url %}
+        <a class="btn" href="{{ pdf_url }}" target="_blank">📄 Open Generated PDF</a>
+      {% else %}
+        <button onclick="window.print()">🖨️ Download / Print PDF</button>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

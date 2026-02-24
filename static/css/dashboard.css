@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f4f7fc;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  background: #20263a;
+  color: white;
+  padding: 20px;
+  width: 240px;
+  min-height: 100vh;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 16px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ddd;
+  transition: 0.2s;
+}
+
+.sidebar ul li a:hover {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 30px;
+}
+
+.topbar {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.topbar h1 {
+  font-size: 26px;
+}
+
+.dashboard-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+}
+
+.dashboard-card.highlight {
+  border-left: 6px solid #0066cc;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition:  0.3s ease;
+}
+
+.btn:hover {
+  background-color: #004b99;
+}
+
+.btn.secondary {
+  background-color: #666;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  background-color: #e9eef7;
+  color: #444;
+}

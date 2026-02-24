@@ -1,0 +1,55 @@
+body {
+  font-family: "Inter", sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #27ae60;
+}
+
+.note {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.paper h3 {
+  margin-top: 20px;
+  color: #1a5276;
+}
+
+.paper ol {
+  margin: 10px 0 20px 20px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background: #3498db;
+  border: none;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  background: #2c80b4;
+}

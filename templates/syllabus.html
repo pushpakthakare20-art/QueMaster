@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus | QueMaster</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/syllabus.css') }}">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>📚 QueMaster</h2>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">🏠 Dashboard</a></li>
+                <li><a href="{{ url_for('generate') }}">📝 Generate Paper</a></li>
+                <li><a href="{{ url_for('syllabus') }}">📖 View Syllabus</a></li>
+                <li><a href="{{ url_for('home') }}" onclick="logout()">🚪 Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <header class="topbar">
+                <h1>Subject Syllabus 📖</h1>
+            </header>
+
+            <div class="syllabus-container">
+                <h1 class="heading">Programming Languages Syllabi</h1>
+                <div class="syllabus-grid">
+                    <div class="syllabus-card">
+                        <span class="icon">🎯</span>
+                        <h3>C Programming</h3>
+                        <p>Complete syllabus for C programming fundamentals and advanced concepts.</p>
+                        <a href="{{ url_for('static', filename='syllabi/c_syllabus.pdf') }}" class="download-btn" download>Download Syllabus</a>
+                    </div>
+
+                    <div class="syllabus-card">
+                        <span class="icon">⚡</span>
+                        <h3>C++ Programming</h3>
+                        <p>Comprehensive C++ syllabus covering OOP and advanced features.</p>
+                        <a href="{{ url_for('static', filename='syllabi/cpp_syllabus.pdf') }}" class="download-btn" download>Download Syllabus</a>
+                    </div>
+
+                    <div class="syllabus-card">
+                        <span class="icon">☕</span>
+                        <h3>Java Programming</h3>
+                        <p>Complete Java programming syllabus with core concepts and frameworks.</p>
+                        <a href="{{ url_for('static', filename='syllabi/java_syllabus.pdf') }}" class="download-btn" download>Download Syllabus</a>
+                    </div>
+
+                    <div class="syllabus-card">
+                        <span class="icon">🐍</span>
+                        <h3>Python Programming</h3>
+                        <p>Modern Python programming syllabus with essential libraries and tools.</p>
+                        <a href="{{ url_for('static', filename='syllabi/python_syllabus.pdf') }}" class="download-btn" download>Download Syllabus</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 QueMaster. Built by Shivaprasad & Team</p>
+    </footer>
+
+    <script>
+        function logout() {
+            window.location.href = "{{ url_for('logout') }}";
+        }
+    </script>
+</body>
+</html>

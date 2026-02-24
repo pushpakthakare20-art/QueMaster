@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.5s ease-in;
+  backdrop-filter: blur(10px);
+background-color: rgba(255, 255, 255, 0.8);
+border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+.signup-box h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.signup-box p {
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px;
+  background-color: #1976d2;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0d47a1;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.error {
+  background-color: #ffcccb;
+  color: #b71c1c;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Flash messages */
+.flashes { margin-bottom: 12px; }
+.flash { padding: 10px; border-radius: 6px; margin-bottom: 8px; }
+.flash.success { background: #d4edda; color: #155724; }
+.flash.danger { background: #f8d7da; color: #721c24; }
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(-45deg, #aee1f9, #d7f9fc, #b2ebf2, #e0f7fa);
+  background-size: 400% 400%;
+  animation: animatedBG 12s ease infinite;
+}
+
+@keyframes animatedBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

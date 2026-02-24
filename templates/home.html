@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueMaster — Home</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Explore QueMaster features: AI question generator, SPPU/NEP patterns, PDF export and more."/>
+  <meta name="keywords" content="question paper generator, NEP, SPPU, AI, education tool"/>
+  <meta name="author" content="Shivaprasad, Pushpak, Soham" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main CSS (served via Flask) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <a class="brand" href="{{ url_for('index') }}">QueMaster</a>
+    <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" aria-current="page">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('faq') }}">FAQ</a>
+      <a class="btn btn-small" href="{{ url_for('login') }}">Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero / Feature Introduction -->
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title reveal-up">Built for teachers. Ready for exams.</h1>
+      <p class="lead reveal-up" style="text-align:center; max-width:720px; margin:0 auto;">
+        QueMaster turns topics into structured, printable question papers — complete with
+        flexible patterns, difficulty control, and instant PDF export.
+      </p>
+
+      <!-- Feature Cards -->
+      <div class="grid features" style="margin-top:22px">
+        <div class="card reveal-up">
+          <div class="icon">🧩</div>
+          <h3>Smart patterns</h3>
+          <p>Choose from presets like 25/50/100 marks with “attempt any” options.</p>
+        </div>
+        <div class="card reveal-up delay-1">
+          <div class="icon">🗂️</div>
+          <h3>Subject & topic bank</h3>
+          <p>Organize by subjects and chapters; reuse across papers and semesters.</p>
+        </div>
+        <div class="card reveal-up delay-2">
+          <div class="icon">🖨️</div>
+          <h3>One‑click PDF</h3>
+          <p>Generate clean, print‑ready papers that match college standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container reveal-up" style="justify-content:center; text-align:center;">
+      <h3>Try QueMaster today — free for your internal demo.</h3>
+      <a class="btn btn-primary" href="{{ url_for('login') }}">Get started</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand foot">QueMaster</div>
+        <p class="foot-note">By Shivaprasad, Pushpak &amp; Soham.</p>
+      </div>
+      <div class="foot-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('faq') }}">FAQ</a>
+        <a href="{{ url_for('login') }}">Login</a>
+      </div>
+      <div class="foot-small">© 2025 QueMaster. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('open');
+    });
+
+    // Scroll reveal animation
+    const reveal = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+    const io = new IntersectionObserver(reveal, { threshold: 0.12 });
+    document.querySelectorAll('.reveal-up').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
