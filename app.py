@@ -159,7 +159,7 @@ def db_connection():
     conn = psycopg2.connect(
         dbname="quemaster_db",
         user="postgres",
-        password="pushpak@2004",  # actual PostgreSQL password
+        password="",  # actual PostgreSQL password
         host="localhost",
         port="5432" 
     )
